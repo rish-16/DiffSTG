@@ -9,6 +9,7 @@ mdh5_file_tiny = '/data/rishabh/MD/h5_files/MD.hdf5'
 md_H5File_tiny = h5py.File(mdh5_file_tiny)
 
 pdb_codes = list(dict(md_H5File_tiny).keys())
+print ("number of PDBs:", len(pdb_codes))
 
 def combine_pdbs(struct):
     # Define the path to your PDB files directory
@@ -43,7 +44,7 @@ def combine_pdbs(struct):
 mk_cmd = f"mkdir all_misato_anim"
 subprocess.call(mk_cmd, shell=True)
 
-for pdb in pdb_codes[:2]:
+for pdb in pdb_codes:
     odj = md_H5File_tiny[pdb]
 
     for i in range(100):
